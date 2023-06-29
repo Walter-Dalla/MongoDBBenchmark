@@ -21,9 +21,9 @@ namespace Benchmark.Repository
             });
         }
 
-        public async Task Find(int referenceId)
+        public async Task<AsyncTest> Find(int referenceId)
         {
-            await _collection.FindAsync(p => p.ReferenceId == referenceId);
+            return (await _collection.FindAsync(p => p.ReferenceId == referenceId)).FirstOrDefault();
         }
     }
 }

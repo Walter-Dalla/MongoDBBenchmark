@@ -21,9 +21,9 @@ namespace Benchmark.Repository
             });
         }
 
-        public void Find(int referenceId)
+        public SyncTest Find(int referenceId)
         {
-            _collection.Find(p => p.ReferenceId == referenceId);
+            return _collection.Find(p => p.ReferenceId == referenceId).FirstOrDefault();
         }
     }
 }

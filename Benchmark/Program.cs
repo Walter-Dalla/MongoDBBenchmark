@@ -5,11 +5,6 @@ using MongoDB.Driver;
 
 Console.WriteLine("Starting");
 
-
-
-
-
-
 var summary = BenchmarkRunner.Run<Test>();
 
 
@@ -28,10 +23,10 @@ public class Test
     public Test()
     {
         Console.WriteLine("Connecting DB");
-        string connectionString = "mongodb://localhost:27017"; // Replace with your MongoDB connection string
-        MongoClientSettings settings = MongoClientSettings.FromUrl(new MongoUrl(connectionString));
-        MongoClient client = new MongoClient(settings);
-        IMongoDatabase database = client.GetDatabase("BenchmarkDotNet"); // Replace with your database name
+        var connectionString = "mongodb://localhost:27017"; // Replace with your MongoDB connection string
+        var settings = MongoClientSettings.FromUrl(new MongoUrl(connectionString));
+        var client = new MongoClient(settings);
+        var database = client.GetDatabase("BenchmarkDotNet"); // Replace with your database name
 
         _asyncTestRepository = new AsyncTestRepository(database);
         _syncTestRepository = new SyncTestRepository(database);
