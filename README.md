@@ -31,13 +31,48 @@ The benchmarks will be run and the results will be printed to the console.
 The results of the benchmarks will show you how much faster the async operations are than the sync operations.
 
 
+Please note that during benchmark execution, if you attempt to run the code without first building it without using the publishing tool on Visual Studio, you may encounter issues. 
+Therefore, it is essential to build in publishing mode the code before running the benchmarks to ensure smooth and accurate results.
+
+
+## Run Exemple
+```
+BenchmarkDotNet=v0.13.5, OS=Windows 10 (10.0.19045.3208/22H2/2022Update)
+AMD Ryzen 5 1600, 1 CPU, 12 logical and 6 physical cores
+.NET SDK=7.0.103
+  [Host]     : .NET 6.0.14 (6.0.1423.7309), X64 RyuJIT AVX2
+  Job-MIGCUF : .NET 6.0.14 (6.0.1423.7309), X64 RyuJIT AVX2
+
+InvocationCount=1000  IterationCount=10  UnrollFactor=1
+WarmupCount=10
+
+|      Method |        Mean |        Error |      StdDev |      Median |
+|------------ |------------:|-------------:|------------:|------------:|
+| AsyncInsert |    316.3 us |     35.33 us |    23.37 us |    315.4 us |
+|   AsyncFind | 16,356.1 us |     63.47 us |    33.20 us | 16,354.9 us |
+|  SyncInsert |    226.5 us |      1.45 us |     0.96 us |    226.7 us |
+|    SyncFind | 19,311.7 us | 14,398.88 us | 9,523.97 us | 15,421.5 us |
+
+// * Hints *
+Outliers
+  Test.AsyncFind: InvocationCount=1000, IterationCount=10, UnrollFactor=1, WarmupCount=10  -> 2 outliers were removed (16.98 ms, 20.12 ms)
+  Test.SyncInsert: InvocationCount=1000, IterationCount=10, UnrollFactor=1, WarmupCount=10 -> 1 outlier  was  detected (224.57 us)
+
+// * Legends *
+  Mean   : Arithmetic mean of all measurements
+  Error  : Half of 99.9% confidence interval
+  StdDev : Standard deviation of all measurements
+  Median : Value separating the higher half of all measurements (50th percentile)
+  1 us   : 1 Microsecond (0.000001 sec)
+```	
+
 ## To-Do
 ```
 * Add more benchmarks to measure the performance of other MongoDB operations.
 * Add more configuration options to the code, such as the number of iterations and the warmup count.
 * Make the code more portable by using a connection string builder instead of a hard-coded connection string.
-
 ```
+
 ## Author
 ```
 Walter Dalla
