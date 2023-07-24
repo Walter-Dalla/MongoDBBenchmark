@@ -46,12 +46,12 @@ AMD Ryzen 5 1600, 1 CPU, 12 logical and 6 physical cores
 InvocationCount=1000  IterationCount=10  UnrollFactor=1
 WarmupCount=10
 
-|      Method |        Mean |        Error |      StdDev |      Median |
-|------------ |------------:|-------------:|------------:|------------:|
-| AsyncInsert |    316.3 us |     35.33 us |    23.37 us |    315.4 us |
-|   AsyncFind | 16,356.1 us |     63.47 us |    33.20 us | 16,354.9 us |
-|  SyncInsert |    226.5 us |      1.45 us |     0.96 us |    226.7 us |
-|    SyncFind | 19,311.7 us | 14,398.88 us | 9,523.97 us | 15,421.5 us |
+|      Method |        Mean |       Error |      StdDev |
+|------------ |------------:|------------:|------------:|
+| AsyncInsert |    279.9 us |    31.64 us |    18.83 us |
+|   AsyncFind | 31,026.6 us |   492.48 us |   325.74 us |
+|  SyncInsert |    224.2 us |     6.57 us |     3.91 us |
+|    SyncFind | 12,003.4 us | 3,343.34 us | 2,211.41 us |
 
 // * Hints *
 Outliers
