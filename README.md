@@ -32,18 +32,18 @@ The results of the benchmarks will show you how much faster the async operations
 
 
 ## To-Do
-
+```
 * Add more benchmarks to measure the performance of other MongoDB operations.
 * Add more configuration options to the code, such as the number of iterations and the warmup count.
 * Make the code more portable by using a connection string builder instead of a hard-coded connection string.
-```
+
 ```
 ## Author
-
-Walter Dalla
 ```
+Walter Dalla
 ```
 ## License
 
+```
 This code is licensed under the MIT License.
 ``````
